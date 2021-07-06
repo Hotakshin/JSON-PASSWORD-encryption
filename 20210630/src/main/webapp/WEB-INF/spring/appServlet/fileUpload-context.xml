@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		    <property name="maxUploadSize" value="200000000" />
+    		<property name="maxInMemorySize" value="200000000" />	
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="message.label" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<!-- 
+		@Bean
+		public MessageSource messageSource () { ==> id
+			//Class
+			ResourceBundleMessageSource ms = new .ResourceBundleMessageSource();
+			//properties
+			ms.setBasenames("message.label", "message.label");
+			ms.setDefaulfEncoding("UTF-8");
+			return ms;
+		}
+	 -->
+</beans>
